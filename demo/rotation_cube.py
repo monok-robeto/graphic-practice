@@ -65,8 +65,10 @@ def translate_z(x, y, z):
 def run():
     rotate_speed = 0.5
     angle = app.time * math.pi * rotate_speed
+    
     for p in CUBE_VERT:
         draw_point(*screen(*project(*translate_z(*rotate_x_z(*p, angle)))))
+
     for a, b in CUBE_INDICES:
         line(screen(*project(*translate_z(*rotate_x_z(*CUBE_VERT[a], angle)))),
              screen(*project(*translate_z(*rotate_x_z(*CUBE_VERT[b], angle))))
