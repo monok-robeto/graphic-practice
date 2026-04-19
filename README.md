@@ -7,6 +7,16 @@ While I do not possess profound expertise in Python, I selected it as a learning
 
 Consequently, the code quality within this project may not reflect professional standards.
 
+To actualize my conceptual designs, I opted to utilize the `pygame` library. I commissioned Claude to generate these two files to facilitate my understanding of `pygame` library usage:
+
+**Prompt Input:** 
+
+```txt
+Override `main.py`. Develop an example program to showcase all Pygame features. It's important to note that this Python project serves as a platform for learning graphic rendering. Therefore, please list the essential features relevant to my learning objectives.
+    ```
+- [`pygame_features.py`](pygame_features.py)
+- [`pygame_features_main.py`](pygame_features_main.py)
+
 ## References
 - [One Formula That Demystifies 3D Graphics](https://www.youtube.com/watch?v=qjWkNZ0SXfo): Provides a straightforward simulation of a rendering engine and elucidates the fundamental formula for transforming a point from 3D space into 2D screen coordinates.
 - [python data structures](https://www.geeksforgeeks.org/python/python-data-structures/): Provides information regarding the usage and memory layout of data types in Python.

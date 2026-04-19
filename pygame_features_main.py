@@ -14,7 +14,7 @@ Press 1-8 to switch between demos. Press Q or close window to quit.
 """
 
 import pygame
-import demos
+import pygame_features as demos
 
 # ---------------------------------------------------------------------------
 # Setup
