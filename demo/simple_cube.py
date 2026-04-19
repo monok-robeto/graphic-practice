@@ -63,9 +63,9 @@ def run():
              )
     
     hints = [
-            "Pipeline: translate Z → perspective divide → screen map",
-            "project:    px=x/z,  py=y/z   (perspective divide)",
-            "screen:     sx=W/2+px·scale,  sy=H/2−py·scale",
+            "Pipeline:translate Z -> perspective divide -> screen map",
+            "project:    px = x/z,  py = y/z   (perspective divide)",
+            "screen:     sx = W/2 + px * scale,  sy = H / 2 − py * scale",
             ]
     for i, l in enumerate(hints):
         text.label(l, (1, const.SCREEN_H - (len(hints) - i) * 24))

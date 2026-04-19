@@ -27,7 +27,7 @@ def draw_section_tabs(active):
         is_active = i == active
         x = i * tab_w
         pygame.draw.rect(app.surface, color.GREEN_0 if is_active else color.GREY_1, (x, 0, tab_w, tab_h))
-        label = tab_title.render(f"{i}. {d.name}", True, color.WHITE_0 if is_active else color.GREY_0)
+        label = tab_title.render(f"{i + 1}. {d.name}", True, color.WHITE_0 if is_active else color.GREY_0)
         lx = x + (tab_w - label.get_width()) // 2
         ly = (tab_h - label.get_height()) // 2
         app.surface.blit(label, (lx, ly))
