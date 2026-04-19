@@ -31,7 +31,9 @@ Override `main.py`. Develop an example program to showcase all Pygame features. 
 - [`pygame_features.py`](pygame_features.py)
 - [`pygame_features_main.py`](pygame_features_main.py)
 
-If you, like me, are not yet fully familiar with how to use `Python` and `pygame`, you should review these two files to gain a clear understanding of their usage. To run Pygame feature previews, use the following command:
+If you, like me, are not yet fully familiar with how to use `Python` and `pygame`, you should review these two files to gain a clear understanding of their usage.
+
+To run `pygame` feature previews, use the following command:
 
 ```bash
 uv run pygame_features_main.py
