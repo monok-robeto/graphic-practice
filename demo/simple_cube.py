@@ -1,10 +1,13 @@
+
+
 import utils.txt as text
 import pygame
 import const
 import app
+import math
 
-NAME = "Simple Cube"
-camera_depth = 1
+NAME = "3d Cube"
+camera_depth = 1.5
 CUBE_VERT = [
     # front face  (z = 1)
     (-0.25, -0.25,  0.25),
@@ -28,7 +31,6 @@ CUBE_INDICES = [
 ]
 
 def project(x, y, z):
-    z += camera_depth
     px = x/z
     py = y/z
     return px, py, z
@@ -36,35 +38,43 @@ def project(x, y, z):
 def screen(x, y, z):
     sx = const.HALF_W + x * const.MAX_AXIS_LEN
     sy = const.HALF_H - y * const.MAX_AXIS_LEN
-    return sx, sy, z
+    return sx, sy
 
 
 def vector(x, y, z):
     return x, y, z
 
-def point(x, y, z):
-    sx, sy, _= screen(*project(x, y, z))
-    pygame.draw.circle(app.surface, const.POINT_COL, (sx, sy), const.POINT_RADIUS, const.POINT_RADIUS)
+def draw_point(x, y):
+    pygame.draw.circle(app.surface, const.POINT_COL, (x, y), const.POINT_RADIUS, const.POINT_RADIUS)
 
 def line(start_pos, end_pos):
-    ax, ay, _ = screen(*project(*start_pos))
-    bx, by, _ = screen(*project(*end_pos))  
-    pygame.draw.line(app.surface, const.LINE_COL, (ax, ay), (bx, by))
+    pygame.draw.line(app.surface, const.LINE_COL, start_pos, end_pos)
 
+
+def translate_z(x, y, z):
+    return x, y, z + camera_depth
+
+angle = 0
 def run():
-    
-    text.hint(f"")
+    global angle
+    rotate_speed = 0.5
+    angle += app.delta_time * math.pi * rotate_speed
     for p in CUBE_VERT:
-        point(*p)
+        draw_point(*screen(*project(*translate_z(*p))))
     for a, b in CUBE_INDICES:
-        line(CUBE_VERT[a], CUBE_VERT[b])
+        line(screen(*project(*translate_z(*CUBE_VERT[a]))),
+             screen(*project(*translate_z(*CUBE_VERT[b])))
+             )
     
     hints = [
-            "",
-            "",
+            "Pipeline: translate Z → perspective divide → screen map",
+            "project:    px=x/z,  py=y/z   (perspective divide)",
+            "screen:     sx=W/2+px·scale,  sy=H/2−py·scale",
             ]
     for i, l in enumerate(hints):
         text.label(l, (1, const.SCREEN_H - (len(hints) - i) * 24))
+
+
 
 
 

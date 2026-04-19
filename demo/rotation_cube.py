@@ -6,7 +6,7 @@ import app
 import math
 
 NAME = "Rotation Cube"
-camera_depth = 1
+camera_depth = 1.5
 CUBE_VERT = [
     # front face  (z = 1)
     (-0.25, -0.25,  0.25),
@@ -43,7 +43,7 @@ def screen(x, y, z):
 def vector(x, y, z):
     return x, y, z
 
-def draw_point(x, y ):
+def draw_point(x, y):
     pygame.draw.circle(app.surface, const.POINT_COL, (x, y), const.POINT_RADIUS, const.POINT_RADIUS)
 
 def line(start_pos, end_pos):
@@ -65,8 +65,8 @@ def translate_z(x, y, z):
 angle = 0
 def run():
     global angle
-    text.hint(f"")
-    angle += app.delta_time * math.pi 
+    rotate_speed = 0.5
+    angle += app.delta_time * math.pi * rotate_speed
     for p in CUBE_VERT:
         draw_point(*screen(*project(*translate_z(*rotate_x_z(*p, angle)))))
     for a, b in CUBE_INDICES:
