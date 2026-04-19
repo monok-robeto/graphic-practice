@@ -54,7 +54,7 @@ def handle_events(currentSectionVal):
 
 while running == True:
     running, current_demo_idx = handle_events(current_demo_idx)
-    if not is_pausing: app.tick()
+    app.tick(is_pausing)
     app.surface.fill(color.BLACK)
     draw_section_tabs(current_demo_idx)
     text.title(f"{current_demo_idx + 1}. {demos[current_demo_idx].name}")
