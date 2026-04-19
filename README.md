@@ -4,16 +4,16 @@
 This project is dedicated to exploring and testing mathematical formulas and theories as part of my ongoing study of computer graphics principles.
 
 ## Setup
-**MacOS** 
+### MacOS
 ```bash
 brew install uv # install tool chain
 uv sync # install dependencies
 uv run main.py # launch app
 ```
-**Window** 
+### Window
 TODO: implement docs for this
 
-**Linux** 
+### Linux
 TODO: implement docs for this
 
 
