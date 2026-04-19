@@ -7,10 +7,11 @@ SCREEN_H = 720
 HALF_W = SCREEN_W / 2
 HALF_H = SCREEN_H / 2
 
-MAX_AXIS_LEN = 720 # max len of x, y, z
+MAX_AXIS_LEN = 720 # max len of x, y, z axis
 
 POINT_RADIUS = 3
 POINT_COL = "#39cc9b"
+
 LINE_WIDTH = 1
 LINE_COL =  "#39cc9b"
 

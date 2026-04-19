@@ -2,17 +2,16 @@ import pygame
 import app
 import const
 import utils.color as color
-# ---------------------------------------------------------------------------
-# Shared font helpers (initialized lazily after pygame.init())
-# ---------------------------------------------------------------------------
-_fonts = {}
+
+_cached_fonts = {}
+
 default_font = const.DEFAULT_FONT
 
 def _font(name, size, bold=False, italic=False):
     key = (name, size, bold, italic)
-    if key not in _fonts:
-        _fonts[key] = pygame.font.SysFont(name, size, bold=bold, italic=italic)
-    return _fonts[key]
+    if key not in _cached_fonts:
+        _cached_fonts[key] = pygame.font.SysFont(name, size, bold=bold, italic=italic)
+    return _cached_fonts[key]
 
 def label(text, pos, color= color.WHITE_0):
     app.surface.blit(_font(default_font, 16).render(text, True, color), pos)
