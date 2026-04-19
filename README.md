@@ -4,32 +4,6 @@
 
 # Demo
 
-| Preview | Src |
-| -------------- | --------------- |
-| ![cube rotatation](screenshots/rotation_cube.gif) | ![`demo/rotation_cube.py`](demo/rotation_cube.py)  |
-
-
-| Preview | Src |
-| -------------- | --------------- |
-| ![`demo/rotation_cube.py`](demo/rotation_cube.py) | ![cube rotatation](screenshots/rotation_cube.gif)  |
-
-
-
-
-
-
-| Simple Cube | Rotation Cube |
-| -------------- | --------------- |
-| ![simple cube](screenshots/simple_cube.png) | ![cube rotatation](screenshots/rotation_cube.gif) |
-| [`demo/simple_cube.py`](demo/simple_cube.py) | ![`demo/rotation_cube.py`](demo/rotation_cube.py) |
-
-
-| Simple Cube | Rotation Cube |
-| -------------- | --------------- |
-| ![simple cube](screenshots/simple_cube.png)<br> [`demo/simple_cube.py`](demo/simple_cube.py) | ![cube rotatation](screenshots/rotation_cube.gif) <br> ![`demo/rotation_cube.py`](demo/rotation_cube.py) |
-
-
-
 | Simple Cube | Rotation Cube |
 | -------------- | --------------- |
 |<img src="screenshots/simple_cube.png" width="720"> <br> [`demo/simple_cube.py`](demo/simple_cube.py) | ![cube rotatation](screenshots/rotation_cube.gif) <br> ![`demo/rotation_cube.py`](demo/rotation_cube.py) |
