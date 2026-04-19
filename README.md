@@ -52,6 +52,7 @@ TODO: Provide comprehensive documentation for each demo.
 ## Checklist
 - [x] Fundamentals of 2D to 3D Conversion
 - [ ] Draw an oriented triangle in 3D space
+  - [x] draw coordinate systems
 
 ## References
 - [x] [python data structures](https://www.geeksforgeeks.org/python/python-data-structures/): Provides information regarding the usage and memory layout of data types in Python.
