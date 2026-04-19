@@ -45,9 +45,8 @@ uv run pygame_features_main.py
 ## Demo
 TODO: Provide comprehensive documentation for each demo.
 
-|<img src="screenshots/simple_cube.png" width="740"> <br> [`demo/simple_cube.py`](demo/simple_cube.py) | ![cube rotatation](screenshots/rotation_cube.gif) <br> [`demo/rotation_cube.py`](demo/rotation_cube.py) |
+|![cube rotatation](screenshots/rotation_cube.gif) <br> [`demo/rotation_cube.py`](demo/rotation_cube.py) | ![rotated coordinate cube](screenshots/rotated_coordinate_cube.gif) <br> [`demo/rotated_coordinate_cube.py`](demo/rotated_coordinate_cube.py) |
 | -------------- | --------------- |
-|![rotated coordinate cube](screenshots/rotated_coordinate_cube.gif) <br> [`demo/rotated_coordinate_cube.py`](demo/rotated_coordinate_cube.py) | ![cube rotatation](screenshots/rotation_cube.gif) <br> [`demo/rotation_cube.py`](demo/rotation_cube.py) |
 
 ## Checklist
 - [x] Fundamentals of 2D to 3D Conversion
