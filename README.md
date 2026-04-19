@@ -4,7 +4,7 @@
 
 # Demo
 
-|<img src="screenshots/simple_cube.png" width="730"> <br> [`demo/simple_cube.py`](demo/simple_cube.py) | ![cube rotatation](screenshots/rotation_cube.gif) <br> [`demo/rotation_cube.py`](demo/rotation_cube.py) |
+|<img src="screenshots/simple_cube.png" width="740"> <br> [`demo/simple_cube.py`](demo/simple_cube.py) | ![cube rotatation](screenshots/rotation_cube.gif) <br> [`demo/rotation_cube.py`](demo/rotation_cube.py) |
 | -------------- | --------------- |
-|<img src="screenshots/simple_cube.png" width="730"> <br> [`demo/simple_cube.py`](demo/simple_cube.py) | ![cube rotatation](screenshots/rotation_cube.gif) <br> [`demo/rotation_cube.py`](demo/rotation_cube.py) |
+|<img src="screenshots/simple_cube.png" width="740"> <br> [`demo/simple_cube.py`](demo/simple_cube.py) | ![cube rotatation](screenshots/rotation_cube.gif) <br> [`demo/rotation_cube.py`](demo/rotation_cube.py) |
 
