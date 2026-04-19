@@ -1,3 +1,4 @@
+from utils import color
 import utils.txt as text
 import pygame
 import const
@@ -45,8 +46,8 @@ def vector(x, y, z):
 def draw_point(x, y):
     pygame.draw.circle(app.surface, const.POINT_COL, (x, y), const.POINT_RADIUS, const.POINT_RADIUS)
 
-def line(start_pos, end_pos):
-    pygame.draw.line(app.surface, const.LINE_COL, start_pos, end_pos)
+def line(start_pos, end_pos, col = const.LINE_COL):
+    pygame.draw.line(app.surface, col, start_pos, end_pos)
 """
 x2​=cosβ⋅x1​−sinβ⋅y1​
 y2=sin⁡β⋅x1+cos⁡β⋅y1
@@ -61,6 +62,40 @@ def rotate_x_z(x, y, z, angle):
 def translate_z(x, y, z):
     return x, y, z + camera_depth
 
+def coordinate_x_y_z():
+    min_x = (0, const.HALF_H)
+    max_x = (const.SCREEN_W, const.HALF_H)
+    min_y = (const.HALF_W, 0)
+    max_y = (const.HALF_W, const.SCREEN_H)
+    line(min_x, max_x, color.WHITE_0)
+    line(min_y, max_y, color.WHITE_0)
+    horizontal_coordinate()
+    vertical_coordinate()
+
+def horizontal_coordinate():
+    width = const.COORDINATE_UNIT_SEGMENT_LEN
+    unit_amount = const.COORDINATE_UNIT_AMOUNT
+    segment_length = int(const.HALF_AXIS_LEN // unit_amount)
+    offset_label = 10
+    for i in range(-1 * unit_amount, unit_amount, 1):
+        a = (const.HALF_W + i * segment_length, const.HALF_AXIS_LEN - width)
+        b = (const.HALF_W + i * segment_length, const.HALF_AXIS_LEN + width)
+        text.label(f"{i}", (a[0] - width, a[1] + offset_label))
+        line(a, b, color.WHITE_0)
+
+def vertical_coordinate():
+    width = const.COORDINATE_UNIT_SEGMENT_LEN
+    unit_amount = const.COORDINATE_UNIT_AMOUNT
+    segment_length = int(const.HALF_AXIS_LEN // unit_amount)
+    offset_label_x = 13
+    offset_label_y = 11
+    for i in range(-1 * unit_amount, unit_amount, 1):
+        a = (const.HALF_W - width, const.HALF_AXIS_LEN + i * segment_length)
+        b = (const.HALF_W + width, const.HALF_AXIS_LEN + i * segment_length)
+        
+        text.label(f"{i*-1}", (a[0] + offset_label_x, a[1] - offset_label_y))
+        line(a, b, color.WHITE_0)
+
 def run():
     rotate_speed = 0.5
     angle = app.time * math.pi * rotate_speed
@@ -73,6 +108,7 @@ def run():
              screen(*project(*translate_z(*rotate_x_z(*CUBE_VERT[b], angle))))
              )
     
+    coordinate_x_y_z()
     hints = [
             "Pipeline: rotate (Y - axis) -> translate Z -> perspective divide -> screen map",
             "rotate_x_z: x'= cos(angle) - sin(angle) * z,  z' = sin(angle) * x + cos(angle) * z",

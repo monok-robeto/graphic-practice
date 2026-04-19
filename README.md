@@ -55,6 +55,7 @@ TODO: Provide comprehensive documentation for each demo.
 ## References
 - [x] [python data structures](https://www.geeksforgeeks.org/python/python-data-structures/): Provides information regarding the usage and memory layout of data types in Python.
 - [x] [One Formula That Demystifies 3D Graphics](https://www.youtube.com/watch?v=qjWkNZ0SXfo): Provides a straightforward simulation of a rendering engine and elucidates the fundamental formula for transforming a point from 3D space into 2D screen coordinates.
+- [ ] [points-vectors-and-normals](https://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/geometry/points-vectors-and-normals.html)
 - [ ] [spherical-coordinates-and-trigonometric-functions](https://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/geometry/spherical-coordinates-and-trigonometric-functions.html)
 
 
