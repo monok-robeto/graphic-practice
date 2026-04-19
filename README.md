@@ -9,6 +9,15 @@
 | ![cube rotatation](screenshots/rotation_cube.gif) | ![`demo/rotation_cube.py`](demo/rotation_cube.py)  |
 
 
+| Preview | Src |
+| -------------- | --------------- |
+| ![`demo/rotation_cube.py`](demo/rotation_cube.py) | ![cube rotatation](screenshots/rotation_cube.gif)  |
+
+
+
+
+
+
 | Simple Cube | Rotation Cube |
 | -------------- | --------------- |
 | ![simple cube](screenshots/simple_cube.png) | ![cube rotatation](screenshots/rotation_cube.gif) |
