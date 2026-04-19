@@ -1,5 +1,6 @@
 import pygame
 import utils.color as color
+import utils.txt as text
 import const
 import app
 import demo
@@ -15,8 +16,8 @@ class Demo:
 
 
 demos = [
-        Demo("Test", demo.simple_cube.run),
-        Demo("Test2", demo.simple_cube.run),
+        Demo(demo.simple_cube.NAME, demo.simple_cube.run),
+        Demo(demo.rotation_cube.NAME, demo.rotation_cube.run),
          ]
 
 def draw_section_tabs(active):
@@ -26,7 +27,7 @@ def draw_section_tabs(active):
         is_active = i == active
         x = i * tab_w
         pygame.draw.rect(app.surface, color.GREEN_0 if is_active else color.GREY_1, (x, 0, tab_w, tab_h))
-        label = tab_title.render(d.name, True, color.WHITE_0 if is_active else color.GREY_0)
+        label = tab_title.render(f"{i}. {d.name}", True, color.WHITE_0 if is_active else color.GREY_0)
         lx = x + (tab_w - label.get_width()) // 2
         ly = (tab_h - label.get_height()) // 2
         app.surface.blit(label, (lx, ly))
@@ -51,6 +52,8 @@ while running == True:
     running, current_demo_idx = handle_events(current_demo_idx)
     app.surface.fill(color.BLACK)
     draw_section_tabs(current_demo_idx)
+    text.title(f"{current_demo_idx + 1}. {demos[current_demo_idx].name}")
+    text.label(f"FPS: {app.fps:.1f}   time: {app.time:.2f}s", (20, 70), color.GREEN_0)
     demos[current_demo_idx].execute()
     pygame.display.flip()
     

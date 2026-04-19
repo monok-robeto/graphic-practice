@@ -14,11 +14,11 @@ def _font(name, size, bold=False, italic=False):
         _fonts[key] = pygame.font.SysFont(name, size, bold=bold, italic=italic)
     return _fonts[key]
 
-def label(text, pos, color= color.GREY_0):
+def label(text, pos, color= color.WHITE_0):
     app.surface.blit(_font(default_font, 16).render(text, True, color), pos)
 
 def title(text):
-    app.surface.blit(_font(default_font, 22, bold=True).render(text, True, color.WHITE_0), (20, 25))
+    app.surface.blit(_font(default_font, 22, bold=True).render(text, True, color.WHITE_0), (20, 40))
 
 def hint(text):
     H = app.surface.get_height()

@@ -1,9 +1,11 @@
+
 import utils.txt as text
 import pygame
 import const
 import app
+import math
 
-NAME = "Simple Cube"
+NAME = "Rotation Cube"
 camera_depth = 1
 CUBE_VERT = [
     # front face  (z = 1)
@@ -28,7 +30,6 @@ CUBE_INDICES = [
 ]
 
 def project(x, y, z):
-    z += camera_depth
     px = x/z
     py = y/z
     return px, py, z
@@ -36,35 +37,49 @@ def project(x, y, z):
 def screen(x, y, z):
     sx = const.HALF_W + x * const.MAX_AXIS_LEN
     sy = const.HALF_H - y * const.MAX_AXIS_LEN
-    return sx, sy, z
+    return sx, sy
 
 
 def vector(x, y, z):
     return x, y, z
 
-def point(x, y, z):
-    sx, sy, _= screen(*project(x, y, z))
-    pygame.draw.circle(app.surface, const.POINT_COL, (sx, sy), const.POINT_RADIUS, const.POINT_RADIUS)
+def draw_point(x, y ):
+    pygame.draw.circle(app.surface, const.POINT_COL, (x, y), const.POINT_RADIUS, const.POINT_RADIUS)
 
 def line(start_pos, end_pos):
-    ax, ay, _ = screen(*project(*start_pos))
-    bx, by, _ = screen(*project(*end_pos))  
-    pygame.draw.line(app.surface, const.LINE_COL, (ax, ay), (bx, by))
+    pygame.draw.line(app.surface, const.LINE_COL, start_pos, end_pos)
+"""
+x2​=cosβ⋅x1​−sinβ⋅y1​
+y2=sin⁡β⋅x1+cos⁡β⋅y1
+"""
+def rotate_x_z(x, y, z, angle):
+    cos_angle = math.cos(angle)
+    sin_angle = math.sin(angle)
+    new_x = cos_angle * x - sin_angle * z
+    new_z = sin_angle * x + cos_angle * z
+    return new_x, y, new_z
 
+def translate_z(x, y, z):
+    return x, y, z + camera_depth
+
+angle = 0
 def run():
-    
+    global angle
     text.hint(f"")
+    angle += app.delta_time * math.pi 
     for p in CUBE_VERT:
-        point(*p)
+        draw_point(*screen(*project(*translate_z(*rotate_x_z(*p, angle)))))
     for a, b in CUBE_INDICES:
-        line(CUBE_VERT[a], CUBE_VERT[b])
+        line(screen(*project(*translate_z(*rotate_x_z(*CUBE_VERT[a], angle)))),
+             screen(*project(*translate_z(*rotate_x_z(*CUBE_VERT[b], angle))))
+             )
     
     hints = [
-            "",
             "",
             ]
     for i, l in enumerate(hints):
         text.label(l, (1, const.SCREEN_H - (len(hints) - i) * 24))
+
 
 
 
