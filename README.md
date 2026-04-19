@@ -10,10 +10,10 @@ brew install uv
 uv run main.py
 ```
 **Window** 
-<!-- TODO: implement docs for this -->
+TODO: implement docs for this
 
 **Linux** 
-<!-- TODO: implement docs for this -->
+TODO: implement docs for this
 
 # Demo
 
