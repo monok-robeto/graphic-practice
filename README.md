@@ -28,3 +28,9 @@
 | -------------- | --------------- |
 | ![simple cube](screenshots/simple_cube.png)<br> [`demo/simple_cube.py`](demo/simple_cube.py) | ![cube rotatation](screenshots/rotation_cube.gif) <br> ![`demo/rotation_cube.py`](demo/rotation_cube.py) |
 
+
+
+| Simple Cube | Rotation Cube |
+| -------------- | --------------- |
+| ![cube rotatation](screenshots/rotation_cube.gif) <br> [`demo/simple_cube.py`](demo/simple_cube.py) | ![cube rotatation](screenshots/rotation_cube.gif) <br> ![`demo/rotation_cube.py`](demo/rotation_cube.py) |
+
