@@ -1,6 +1,6 @@
 # graphic-practice
 
-[![demo](https://img.shields.io/discord/1495504680711880714?logo=discord)](https://discord.gg/INVITE_CODE)
+[![discord invite link](https://img.shields.io/discord/1495504680711880714?logo=discord)](https://discord.gg/a2qzfrFzWT)
 
 <iframe src="https://discord.com/widget?id=1495504680711880714&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
 
