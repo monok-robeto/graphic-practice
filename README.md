@@ -3,7 +3,10 @@
 - [python data structures](https://www.geeksforgeeks.org/python/python-data-structures/): Provides information regarding the usage and memory layout of data types in Python.
 
 # Demo
-![cube rotatation](screenshots/rotation_cube.gif)
+<figure>
+  <img src="screenshots/rotation_cube.gif" alt="My image">
+  <figcaption>My image caption</figcaption>
+</figure>
 
 | Column1 | Column2 | Column3 |
 | ------------- | -------------- | -------------- |
