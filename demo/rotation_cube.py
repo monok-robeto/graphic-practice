@@ -62,11 +62,9 @@ def rotate_x_z(x, y, z, angle):
 def translate_z(x, y, z):
     return x, y, z + camera_depth
 
-angle = 0
 def run():
-    global angle
     rotate_speed = 0.5
-    angle += app.delta_time * math.pi * rotate_speed
+    angle = app.time * math.pi * rotate_speed
     for p in CUBE_VERT:
         draw_point(*screen(*project(*translate_z(*rotate_x_z(*p, angle)))))
     for a, b in CUBE_INDICES:

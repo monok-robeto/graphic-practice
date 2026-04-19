@@ -54,11 +54,7 @@ def line(start_pos, end_pos):
 def translate_z(x, y, z):
     return x, y, z + camera_depth
 
-angle = 0
 def run():
-    global angle
-    rotate_speed = 0.5
-    angle += app.delta_time * math.pi * rotate_speed
     for p in CUBE_VERT:
         draw_point(*screen(*project(*translate_z(*p))))
     for a, b in CUBE_INDICES:
