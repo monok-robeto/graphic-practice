@@ -8,7 +8,7 @@ HALF_W = SCREEN_W // 2
 HALF_H = SCREEN_H // 2
 COORDINATE_UNIT_AMOUNT = 10
 COORDINATE_UNIT_SEGMENT_LEN = 5
-MAX_AXIS_LEN = 720 # max len of x, y, z axis
+MAX_AXIS_LEN = 500 # max len of x, y, z axis
 HALF_AXIS_LEN = MAX_AXIS_LEN // 2 # max len of x, y, z axis
 
 POINT_RADIUS = 3

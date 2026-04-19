@@ -63,14 +63,17 @@ def translate_z(x, y, z):
     return x, y, z + camera_depth
 
 def coordinate_x_y_z():
-    min_x = (0, const.HALF_H)
-    max_x = (const.SCREEN_W, const.HALF_H)
-    min_y = (const.HALF_W, 0)
-    max_y = (const.HALF_W, const.SCREEN_H)
+    center = (const.HALF_W, const.HALF_H)
+    min_x = (center[0] - const.HALF_AXIS_LEN, center[1])
+    max_x = (center[0] + const.HALF_AXIS_LEN, center[1])
+    min_y = (center[0], center[1] - const.HALF_AXIS_LEN)
+    max_y = (center[0], center[1] + const.HALF_AXIS_LEN)
     line(min_x, max_x, color.WHITE_0)
     line(min_y, max_y, color.WHITE_0)
-    text.label("-X", min_x)
-    text.label("X", max_x)
+    text.label_bold("-X", (min_x[0] - 40, min_x[1]), color.PINK_0)
+    text.label_bold("X", (max_x[0] + 20, max_x[1]), color.PINK_0)
+    text.label_bold("-Y", (max_y[0], max_y[1] + 20), color.YELLOW_0)
+    text.label_bold("Y", (min_y[0], min_y[1] - 40), color.YELLOW_0)
     horizontal_coordinate()
     vertical_coordinate()
 
@@ -79,9 +82,9 @@ def horizontal_coordinate():
     unit_amount = const.COORDINATE_UNIT_AMOUNT
     segment_length = int(const.HALF_AXIS_LEN // unit_amount)
     offset_label = 10
-    for i in range(-1 * unit_amount, unit_amount, 1):
-        a = (const.HALF_W + i * segment_length, const.HALF_AXIS_LEN - width)
-        b = (const.HALF_W + i * segment_length, const.HALF_AXIS_LEN + width)
+    for i in range(-1 * unit_amount, unit_amount + 1, 1):
+        a = (const.HALF_W + i * segment_length, const.HALF_H - width)
+        b = (const.HALF_W + i * segment_length, const.HALF_H + width)
         text.label(f"{i}", (a[0] - width, a[1] + offset_label))
         line(a, b, color.WHITE_0)
 
@@ -91,9 +94,9 @@ def vertical_coordinate():
     segment_length = int(const.HALF_AXIS_LEN // unit_amount)
     offset_label_x = 13
     offset_label_y = 11
-    for i in range(-1 * unit_amount, unit_amount, 1):
-        a = (const.HALF_W - width, const.HALF_AXIS_LEN + i * segment_length)
-        b = (const.HALF_W + width, const.HALF_AXIS_LEN + i * segment_length)
+    for i in range(-1 * unit_amount, unit_amount + 1, 1):
+        a = (const.HALF_W - width, const.HALF_H + i * segment_length)
+        b = (const.HALF_W + width, const.HALF_H + i * segment_length)
         
         text.label(f"{i*-1}", (a[0] + offset_label_x, a[1] - offset_label_y))
         line(a, b, color.WHITE_0)
@@ -112,10 +115,8 @@ def run():
     
     coordinate_x_y_z()
     hints = [
-            "Pipeline: rotate (Y - axis) -> translate Z -> perspective divide -> screen map",
-            "rotate_x_z: x'= cos(angle) - sin(angle) * z,  z' = sin(angle) * x + cos(angle) * z",
-            "project:    px = x/z,  py = y/z   (perspective divide)",
-            "screen:     sx = W/2 + px * scale,  sy = H / 2 − py * scale",
+            "",
+            "",
             ]
     for i, l in enumerate(hints):
         text.label(l, (1, const.SCREEN_H - (len(hints) - i) * 24))

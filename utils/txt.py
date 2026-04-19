@@ -15,7 +15,8 @@ def _font(name, size, bold=False, italic=False):
 
 def label(text, pos, color= color.WHITE_0):
     app.surface.blit(_font(default_font, 16).render(text, True, color), pos)
-
+def label_bold(text, pos, color= color.WHITE_0):
+    app.surface.blit(_font(default_font, 22, bold=True).render(text, True, color), pos)
 def title(text):
     app.surface.blit(_font(default_font, 22, bold=True).render(text, True, color.WHITE_0), (20, 40))
 
