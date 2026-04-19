@@ -75,7 +75,10 @@ def run():
              )
     
     hints = [
-            "",
+            "Pipeline: rotate (Y-axis) → translate Z → perspective divide → screen map",
+            "rotate_x_z: x'=cos·x−sin·z,  z'=sin·x+cos·z",
+            "project:    px=x/z,  py=y/z   (perspective divide)",
+            "screen:     sx=W/2+px·scale,  sy=H/2−py·scale",
             ]
     for i, l in enumerate(hints):
         text.label(l, (1, const.SCREEN_H - (len(hints) - i) * 24))
