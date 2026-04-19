@@ -4,8 +4,8 @@
 
 # Demo
 
-| Simple Cube | Rotation Cube |
-| -------------- | --------------- |
-| ![simple cube](screenshots/simple_cube.png) | ![cube rotatation](screenshots/rotation_cube.gif) |
-| `demo/simple_cube.py` | `demo/rotation_cube.py` |
+| Rotation Cube |
+| --------------- |
+| ![cube rotatation](screenshots/rotation_cube.gif) |
+| ![`demo/rotation_cube.py`](demo/rotation_cube.py) |
 
