@@ -18,6 +18,7 @@ class Demo:
 demos = [
         Demo(demo.simple_cube.NAME, demo.simple_cube.run),
         Demo(demo.rotation_cube.NAME, demo.rotation_cube.run),
+        Demo(demo.oriented_triangle.NAME, demo.oriented_triangle.run),
          ]
 
 def draw_section_tabs(active):
