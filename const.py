@@ -1,4 +1,4 @@
-
+DEFAULT_FONT = "jetbrainsmononerdfont"
 
 SURFACE_TITLE = "RENDERING DEMOS"
 SCREEN_W, SCREEN_H = 1280, 720

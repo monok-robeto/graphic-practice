@@ -1,3 +1,5 @@
+
+BLACK= "#010101"
 PURPLE_0 = "#c191ff"
 PURPLE_1 = "#dcbcf9"
 PURPLE_2 = "#8083c7"
@@ -14,3 +16,4 @@ GREEN_2 = "#39cc9b"
 ORANGE_0 = "#c9a26d"
 GREY_0 = "#727272"
 GREY_1 = "#474747"
+YELLOW_0 = "#ffd9a7"

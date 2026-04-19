@@ -5,9 +5,8 @@ import app
 import demo
 
 running = True
-current_section = 0
-default_font = pygame.font.match_font('monospace')
-tab_title = pygame.font.SysFont(default_font, 24)
+current_demo_idx = 0
+tab_title = pygame.font.SysFont(const.DEFAULT_FONT, 24)
 
 class Demo:
     def __init__(self, name, execute):
@@ -45,10 +44,14 @@ def handle_events(currentSectionVal):
     return keep_running, currentSectionVal
 
 
+
+
 while running == True:
-    running, current_section = handle_events(current_section)
-    draw_section_tabs(current_section)
-    demos[current_section].execute()
+    app.tick()
+    running, current_demo_idx = handle_events(current_demo_idx)
+    app.surface.fill(color.BLACK)
+    draw_section_tabs(current_demo_idx)
+    demos[current_demo_idx].execute()
     pygame.display.flip()
     
 
