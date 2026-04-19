@@ -357,3 +357,10 @@ def demo_mouse(surf, trail):
         "event.type == pygame.MOUSEBUTTONDOWN",
     ]):
         label(surf, line, (20, H - 150 + i * 22), GRAY)
+
+
+
+
+
+
+
