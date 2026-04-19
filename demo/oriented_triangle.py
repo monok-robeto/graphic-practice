@@ -35,8 +35,19 @@ def project(x, y, z):
     return px, py, z
 
 def screen(x, y, z):
-    sx = const.HALF_W + x * const.MAX_AXIS_LEN
-    sy = const.HALF_H - y * const.MAX_AXIS_LEN
+    sx = 0.0
+    sy = 0.0
+    
+    # if x > 1: sx= const.HALF_W + x
+    # else: sx = const.HALF_W + x * const.HALF_AXIS_LEN
+    #
+    # if y > 1: sy = const.HALF_H + y
+    # else: sy = const.HALF_H - y * const.HALF_AXIS_LEN
+    # sx= const.HALF_W + x
+    # sy = const.HALF_H + y
+    sx = const.HALF_W + x * const.HALF_AXIS_LEN
+
+    sy = const.HALF_H - y * const.HALF_AXIS_LEN
     return sx, sy
 
 
@@ -62,44 +73,60 @@ def rotate_x_z(x, y, z, angle):
 def translate_z(x, y, z):
     return x, y, z + camera_depth
 
+def world_to_screen(x, y, z):
+    rotate_speed = 0.5
+    angle = app.time * math.pi * rotate_speed
+    x, y = screen(*project(*translate_z(*(rotate_x_z(x, y, z, angle)))))
+    return (x, y)
+
 def coordinate_x_y_z():
-    center = (const.HALF_W, const.HALF_H)
-    min_x = (center[0] - const.HALF_AXIS_LEN, center[1])
-    max_x = (center[0] + const.HALF_AXIS_LEN, center[1])
-    min_y = (center[0], center[1] - const.HALF_AXIS_LEN)
-    max_y = (center[0], center[1] + const.HALF_AXIS_LEN)
-    line(min_x, max_x, color.WHITE_0)
-    line(min_y, max_y, color.WHITE_0)
-    text.label_bold("-X", (min_x[0] - 40, min_x[1]), color.PINK_0)
-    text.label_bold("X", (max_x[0] + 20, max_x[1]), color.PINK_0)
-    text.label_bold("-Y", (max_y[0], max_y[1] + 20), color.YELLOW_0)
-    text.label_bold("Y", (min_y[0], min_y[1] - 40), color.YELLOW_0)
+    min_x = (-1, 0, 0)
+    max_x = (1, 0, 0)
+    min_y = (0, -1, 0)
+    max_y = (0, 1, 0)
+    min_z = (0, 0, -1)
+    max_z = (0, 0, 1)
+    
+    line(world_to_screen(*min_x), world_to_screen(*max_x), color.WHITE_0)
+    line(world_to_screen(*min_y), world_to_screen(*max_y), color.WHITE_0)
+    # line(world_to_screen(*min_z), world_to_screen(*max_z), color.WHITE_0)
+
+    sx_min_x, sy_min_x = world_to_screen(*min_x)
+    sx_max_x, sy_max_x = world_to_screen(*max_x)
+    sx_min_y, sy_min_y = world_to_screen(*min_y)
+    sx_max_y, sy_max_y = world_to_screen(*max_y)
+    text.label_bold("-X", (sx_min_x, sy_min_x), color.PINK_0)
+    text.label_bold("X", (sx_max_x, sy_max_x), color.PINK_0)
+    text.label_bold("Y", (sx_max_y, sy_max_y), color.YELLOW_0)
+    text.label_bold("-Y", (sx_min_y, sy_min_y), color.YELLOW_0)
     horizontal_coordinate()
     vertical_coordinate()
 
 def horizontal_coordinate():
-    width = const.COORDINATE_UNIT_SEGMENT_LEN
+    width = const.COORDINATE_UNIT_SEGMENT_LEN/ const.HALF_AXIS_LEN
     unit_amount = const.COORDINATE_UNIT_AMOUNT
-    segment_length = int(const.HALF_AXIS_LEN // unit_amount)
+    segment_length = 1 / unit_amount
     offset_label = 10
     for i in range(-1 * unit_amount, unit_amount + 1, 1):
-        a = (const.HALF_W + i * segment_length, const.HALF_H - width)
-        b = (const.HALF_W + i * segment_length, const.HALF_H + width)
-        text.label(f"{i}", (a[0] - width, a[1] + offset_label))
-        line(a, b, color.WHITE_0)
+        a = ( i * segment_length, -width, 0)
+        b = (i * segment_length, width, 0)
+        screen_a = world_to_screen(*a)
+        text.label(f"{i}", (screen_a[0] - width, screen_a[1] + offset_label))
+        line(screen_a, world_to_screen(*b), color.WHITE_0)
 
 def vertical_coordinate():
-    width = const.COORDINATE_UNIT_SEGMENT_LEN
+    width = const.COORDINATE_UNIT_SEGMENT_LEN / const.HALF_AXIS_LEN
     unit_amount = const.COORDINATE_UNIT_AMOUNT
-    segment_length = int(const.HALF_AXIS_LEN // unit_amount)
+    segment_length = 1 / unit_amount
     offset_label_x = 13
     offset_label_y = 11
     for i in range(-1 * unit_amount, unit_amount + 1, 1):
-        a = (const.HALF_W - width, const.HALF_H + i * segment_length)
-        b = (const.HALF_W + width, const.HALF_H + i * segment_length)
+        a = (- width, i * segment_length, 0)
+        b = (+ width, i * segment_length, 0)
         
-        text.label(f"{i*-1}", (a[0] + offset_label_x, a[1] - offset_label_y))
-        line(a, b, color.WHITE_0)
+        screen_a = world_to_screen(*a)
+        text.label(f"{i*-1}", (screen_a[0] + offset_label_x, screen_a[1] - offset_label_y))
+        line(screen_a, world_to_screen(*b), color.WHITE_0)
 
 def run():
     rotate_speed = 0.5

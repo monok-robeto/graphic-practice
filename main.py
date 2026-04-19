@@ -7,6 +7,7 @@ import demo
 
 running = True
 current_demo_idx = 0
+is_pausing = False
 tab_title = pygame.font.SysFont(const.DEFAULT_FONT, 24)
 
 class Demo:
@@ -34,6 +35,7 @@ def draw_section_tabs(active):
         app.surface.blit(label, (lx, ly))
 
 def handle_events(currentSectionVal):
+    global is_pausing
     keep_running = True
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -43,14 +45,16 @@ def handle_events(currentSectionVal):
                 keep_running = False
             elif event.key == pygame.K_TAB:
                 currentSectionVal = (currentSectionVal + 1) % len(demos)
+            elif event.key == pygame.K_SPACE:
+                is_pausing = not is_pausing
     return keep_running, currentSectionVal
 
 
 
 
 while running == True:
-    app.tick()
     running, current_demo_idx = handle_events(current_demo_idx)
+    if not is_pausing: app.tick()
     app.surface.fill(color.BLACK)
     draw_section_tabs(current_demo_idx)
     text.title(f"{current_demo_idx + 1}. {demos[current_demo_idx].name}")
