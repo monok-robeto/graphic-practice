@@ -6,8 +6,9 @@
 
 **MacOS** 
 ```bash
-brew install uv
-uv run main.py
+brew install uv # install tool chain
+uv sync # install dependencies
+uv run main.py # launch app
 ```
 **Window** 
 TODO: implement docs for this
