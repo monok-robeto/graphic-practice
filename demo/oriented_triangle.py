@@ -69,6 +69,8 @@ def coordinate_x_y_z():
     max_y = (const.HALF_W, const.SCREEN_H)
     line(min_x, max_x, color.WHITE_0)
     line(min_y, max_y, color.WHITE_0)
+    text.label("-X", min_x)
+    text.label("X", max_x)
     horizontal_coordinate()
     vertical_coordinate()
 
