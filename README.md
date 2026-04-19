@@ -10,10 +10,9 @@ Consequently, the code quality within this project may not reflect professional 
 To actualize my conceptual designs, I opted to utilize the `pygame` library. I commissioned Claude to generate these two files to facilitate my understanding of `pygame` library usage:
 
 **Prompt Input:** 
-
 ```txt
 Override `main.py`. Develop an example program to showcase all Pygame features. It's important to note that this Python project serves as a platform for learning graphic rendering. Therefore, please list the essential features relevant to my learning objectives.
-    ```
+```
 - [`pygame_features.py`](pygame_features.py)
 - [`pygame_features_main.py`](pygame_features_main.py)
 
