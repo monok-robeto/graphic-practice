@@ -1,4 +1,4 @@
 from . import simple_cube
 from . import rotation_cube
-from . import oriented_triangle
+from . import rotated_coordinate_cube
 

@@ -5,7 +5,7 @@ import const
 import app
 import math
 
-NAME = "Oriented Triangle"
+NAME = "Rotated Coordinate + Cube"
 camera_depth = 1.5
 rotate_speed = 0.5
 
