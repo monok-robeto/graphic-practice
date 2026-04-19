@@ -7,17 +7,20 @@ import math
 
 NAME = "Oriented Triangle"
 camera_depth = 1.5
+rotate_speed = 0.5
+
 CUBE_VERT = [
-    # front face  (z = 1)
-    (-0.25, -0.25,  0.25),
-    ( 0.25, -0.25,  0.25),
-    ( 0.25,  0.25,  0.25),
-    (-0.25,  0.25,  0.25),
-    # back face   (z = 1.5)
-    (-0.25, -0.25,  -0.25),
-    ( 0.25, -0.25,  -0.25),
-    ( 0.25,  0.25,  -0.25),
-    (-0.25,  0.25,  -0.25),
+    # front face 
+    (-0.5, -0.5,  0.5),
+    ( 0.5, -0.5,  0.5),
+    ( 0.5,  0.5,  0.5),
+    (-0.5,  0.5,  0.5),
+
+    # back face 
+    (-0.5, -0.5,  -0.5),
+    ( 0.5, -0.5,  -0.5),
+    ( 0.5,  0.5,  -0.5),
+    (-0.5,  0.5,  -0.5),
 ]
 
 CUBE_INDICES = [
@@ -74,7 +77,6 @@ def translate_z(x, y, z):
     return x, y, z + camera_depth
 
 def world_to_screen(x, y, z):
-    rotate_speed = 0.5
     angle = app.time * math.pi * rotate_speed
     x, y = screen(*project(*translate_z(*(rotate_x_z(x, y, z, angle)))))
     return (x, y)
@@ -89,18 +91,44 @@ def coordinate_x_y_z():
     
     line(world_to_screen(*min_x), world_to_screen(*max_x), color.WHITE_0)
     line(world_to_screen(*min_y), world_to_screen(*max_y), color.WHITE_0)
-    # line(world_to_screen(*min_z), world_to_screen(*max_z), color.WHITE_0)
+    line(world_to_screen(*min_z), world_to_screen(*max_z), color.WHITE_0)
 
     sx_min_x, sy_min_x = world_to_screen(*min_x)
     sx_max_x, sy_max_x = world_to_screen(*max_x)
+    
     sx_min_y, sy_min_y = world_to_screen(*min_y)
     sx_max_y, sy_max_y = world_to_screen(*max_y)
+
+    sx_min_z, sy_min_z = world_to_screen(*min_z)
+    sx_max_z, sy_max_z = world_to_screen(*max_z)
+
     text.label_bold("-X", (sx_min_x, sy_min_x), color.PINK_0)
     text.label_bold("X", (sx_max_x, sy_max_x), color.PINK_0)
+
     text.label_bold("Y", (sx_max_y, sy_max_y), color.YELLOW_0)
     text.label_bold("-Y", (sx_min_y, sy_min_y), color.YELLOW_0)
+
+    text.label_bold("-Z", (sx_min_z, sy_min_z), color.BLUE_0)
+    text.label_bold("Z", (sx_max_z, sy_max_z), color.BLUE_0)
     horizontal_coordinate()
     vertical_coordinate()
+    depth_coordinate()
+
+def depth_coordinate():
+    width = const.COORDINATE_UNIT_SEGMENT_LEN / const.HALF_AXIS_LEN
+    unit_amount = const.COORDINATE_UNIT_AMOUNT
+    segment_length = 1 / unit_amount
+    offset_label_x = -10
+    offset_label_y = 30
+    for i in range(-1 * unit_amount, unit_amount + 1, 1):
+        # a = (-width, 0, i * segment_length)
+        # b = (+width, 0,i * segment_length)
+        a = (0, -width, i * segment_length)
+        b = (0, +width,i * segment_length)
+        screen_a = world_to_screen(*a)
+        text.label(f"{-1*i}", (screen_a[0] + offset_label_x, screen_a[1] - offset_label_y))
+        line(screen_a, world_to_screen(*b), color.WHITE_0)
+        
 
 def horizontal_coordinate():
     width = const.COORDINATE_UNIT_SEGMENT_LEN/ const.HALF_AXIS_LEN
@@ -129,7 +157,6 @@ def vertical_coordinate():
         line(screen_a, world_to_screen(*b), color.WHITE_0)
 
 def run():
-    rotate_speed = 0.5
     angle = app.time * math.pi * rotate_speed
     
     for p in CUBE_VERT:

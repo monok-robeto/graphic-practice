@@ -1,15 +1,12 @@
-
-
 import utils.txt as text
 import pygame
 import const
 import app
-import math
 
 NAME = "3d Cube"
 camera_depth = 1.5
 CUBE_VERT = [
-    # front face  (z = 1)
+    # front face
     (-0.25, -0.25,  0.25),
     ( 0.25, -0.25,  0.25),
     ( 0.25,  0.25,  0.25),

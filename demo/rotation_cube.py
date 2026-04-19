@@ -1,4 +1,3 @@
-
 import utils.txt as text
 import pygame
 import const
@@ -8,12 +7,12 @@ import math
 NAME = "Rotation Cube"
 camera_depth = 1.5
 CUBE_VERT = [
-    # front face  (z = 1)
+    # front face 
     (-0.25, -0.25,  0.25),
     ( 0.25, -0.25,  0.25),
     ( 0.25,  0.25,  0.25),
     (-0.25,  0.25,  0.25),
-    # back face   (z = 1.5)
+    # back face 
     (-0.25, -0.25,  -0.25),
     ( 0.25, -0.25,  -0.25),
     ( 0.25,  0.25,  -0.25),
