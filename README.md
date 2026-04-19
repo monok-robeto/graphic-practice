@@ -4,9 +4,8 @@
 
 # Demo
 
-<img src="screenshots/rotation_cube.gif" alt="Alt text" width="720" height="480">
-
-| Column1 | Column2 | Column3 |
-| ------------- | -------------- | -------------- |
-| ![cube rotatation](screenshots/rotation_cube.gif) | ![cube rotatation](screenshots/rotation_cube.gif) | <img src="screenshots/rotation_cube.gif" alt="Alt text" width="720" height="480"> |
+| Simple Cube | Rotation Cube |
+| -------------- | --------------- |
+| ![simple cube](screenshots/simple_cube.png) | ![cube rotatation](screenshots/rotation_cube.gif) |
+| `demo/simple_cube.py` | `demo/rotation_cube.py` |
 
