@@ -4,6 +4,21 @@ import const
 import app
 
 NAME = "3d Cube"
+NOTES = [
+    "<b>3D Cube — Static</b>",
+    "",
+    "Pipeline: <b>translate Z → project → screen</b>",
+    "",
+    "<b>translate_z</b> — đẩy scene ra xa camera +1.5",
+    "  tránh chia cho 0 trong bước project.",
+    "",
+    "<b>project</b> — perspective divide:",
+    "  px = x / z,  py = y / z",
+    "",
+    "<b>screen</b> — sang tọa độ pixel:",
+    "  sx = W/2 + px · scale",
+    "  sy = H/2 − py · scale",
+]
 camera_depth = 1.5
 CUBE_VERT = [
     # front face
@@ -59,13 +74,4 @@ def run():
              screen(*project(*translate_z(*CUBE_VERT[b])))
              )
     
-    hints = [
-            "Pipeline:translate Z -> perspective divide -> screen map",
-            "project:    px = x/z,  py = y/z   (perspective divide)",
-            "screen:     sx = W/2 + px * scale,  sy = H / 2 − py * scale",
-            ]
-    for i, l in enumerate(hints):
-        text.label(l, (1, const.SCREEN_H - (len(hints) - i) * 24))
-
-
 

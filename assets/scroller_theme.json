@@ -1,0 +1,42 @@
+{
+    "text_box": {
+        "font": {
+            "name": "JetBrainsMono NF",
+            "size": "16",
+            "regular_path": "/Users/xynokchef/Library/Fonts/JetBrainsMonoNerdFont-Regular.ttf",
+            "bold_path": "/Users/xynokchef/Library/Fonts/JetBrainsMonoNerdFont-Bold.ttf",
+            "italic_path": "/Users/xynokchef/Library/Fonts/JetBrainsMonoNerdFont-Italic.ttf",
+            "bold_italic_path": "/Users/xynokchef/Library/Fonts/JetBrainsMonoNerdFont-BoldItalic.ttf"
+        },
+        "colours": {
+            "normal_bg": "#1a1a1a",
+            "normal_border": "#474747",
+            "normal_text": "#bdbdbd",
+            "link_text": "#6c95eb",
+            "link_hover": "#85c46c",
+            "link_selected": "#85c46c"
+        },
+        "misc": {
+            "border_width": "1",
+            "shadow_width": "0",
+            "padding": "10,10"
+        }
+    },
+    "scrolling_container": {
+        "colours": {
+            "normal_bg": "#1a1a1a",
+            "normal_border": "#474747"
+        }
+    },
+    "scroll_bar": {
+        "colours": {
+            "normal_bg": "#474747",
+            "hovered_bg": "#727272",
+            "normal_border": "#474747"
+        },
+        "misc": {
+            "border_width": "0",
+            "shadow_width": "0"
+        }
+    }
+}

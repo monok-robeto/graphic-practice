@@ -5,6 +5,24 @@ import app
 import math
 
 NAME = "Rotation Cube"
+NOTES = [
+    "<b>Rotation Cube</b>",
+    "",
+    "Pipeline: <b>rotate Y → translate Z → project → screen</b>",
+    "",
+    "<b>rotate_x_z</b> — xoay quanh trục Y trong mặt phẳng X-Z:",
+    "  x&#39; = cos(β)·x − sin(β)·z",
+    "  z&#39; = sin(β)·x + cos(β)·z",
+    "",
+    "<b>translate_z</b> — đẩy scene ra xa camera +1.5",
+    "",
+    "<b>project</b> — perspective divide:",
+    "  px = x / z,  py = y / z",
+    "",
+    "<b>screen</b> — sang tọa độ pixel:",
+    "  sx = W/2 + px · scale",
+    "  sy = H/2 − py · scale",
+]
 camera_depth = 1.5
 CUBE_VERT = [
     # front face 
@@ -73,19 +91,6 @@ def run():
              screen(*project(*translate_z(*rotate_x_z(*CUBE_VERT[b], angle))))
              )
     
-    hints = [
-            "Pipeline: rotate (Y - axis) -> translate Z -> perspective divide -> screen map",
-            "rotate_x_z: x'= cos(angle) - sin(angle) * z,  z' = sin(angle) * x + cos(angle) * z",
-            "project:    px = x/z,  py = y/z   (perspective divide)",
-            "screen:     sx = W/2 + px * scale,  sy = H / 2 − py * scale",
-            ]
-    for i, l in enumerate(hints):
-        text.label(l, (1, const.SCREEN_H - (len(hints) - i) * 24))
-
-
-
-
-
 
 
 

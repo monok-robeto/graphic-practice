@@ -6,6 +6,29 @@ import app
 import math
 
 NAME = "Rotated Coordinate + Cube"
+NOTES = [
+    "<b>Rotated Coordinate + Cube</b>",
+    "",
+    "Pipeline: <b>rotate → translate → project → screen</b>",
+    "",
+    "<b>rotate_x_z</b> — xoay trong mặt phẳng X-Z:",
+    "  x&#39; = cos(β)·x − sin(β)·z",
+    "  z&#39; = sin(β)·x + cos(β)·z",
+    "",
+    "<b>translate_z</b> — dịch scene ra xa camera +1.5 đơn vị",
+    "  tránh chia cho 0 trong bước project.",
+    "",
+    "<b>project</b> — perspective projection:",
+    "  px = x / z,  py = y / z",
+    "  Vật càng xa (z lớn) → trông càng nhỏ.",
+    "",
+    "<b>screen</b> — sang tọa độ pixel:",
+    "  sx = HALF_W + x · HALF_AXIS_LEN",
+    "  sy = HALF_H − y · HALF_AXIS_LEN",
+    "",
+    "<font color='#ffd9a7'>Hệ tọa độ xoay cùng khối</font> — toàn bộ",
+    "trục X/Y/Z đều đi qua world_to_screen.",
+]
 camera_depth = 1.5
 rotate_speed = 0.5
 
@@ -168,10 +191,4 @@ def run():
              )
     
     coordinate_x_y_z()
-    hints = [
-            "",
-            "",
-            ]
-    for i, l in enumerate(hints):
-        text.label(l, (1, const.SCREEN_H - (len(hints) - i) * 24))
 
