@@ -5,10 +5,9 @@ import const
 import app
 import math
 
-NAME = "Rotated Coordinate + Cube"
+NAME = "Vector"
 NOTES = [
     "<b>Rotated Coordinate + Cube</b>",
-    "<font color='#727272'>Tọa độ [0,1] theo tỉ lệ màn hình, chưa phải world space thực.</font>",
     "",
     "Pipeline: <b>rotate → translate → project → screen</b>",
     "",
@@ -101,8 +100,9 @@ def translate_z(x, y, z):
     return x, y, z + camera_depth
 
 def world_to_screen(x, y, z):
-    angle = app.time * math.pi * rotate_speed
-    x, y = screen(*project(*translate_z(*(rotate_x_z(x, y, z, angle)))))
+    # angle = app.time * math.pi * rotate_speed
+    # x, y = screen(*project(*translate_z(*(rotate_x_z(x, y, z, angle)))))
+    x, y = screen(*project(*translate_z(x, y, z)))
     return (x, y)
 
 def coordinate_x_y_z():
@@ -181,15 +181,6 @@ def vertical_coordinate():
         line(screen_a, world_to_screen(*b), color.WHITE_0)
 
 def run():
-    angle = app.time * math.pi * rotate_speed
-    
-    for p in CUBE_VERT:
-        draw_point(*screen(*project(*translate_z(*rotate_x_z(*p, angle)))))
 
-    for a, b in CUBE_INDICES:
-        line(screen(*project(*translate_z(*rotate_x_z(*CUBE_VERT[a], angle)))),
-             screen(*project(*translate_z(*rotate_x_z(*CUBE_VERT[b], angle))))
-             )
-    
     coordinate_x_y_z()
 

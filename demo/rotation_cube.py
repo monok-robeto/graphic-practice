@@ -7,6 +7,7 @@ import math
 NAME = "Rotation Cube"
 NOTES = [
     "<b>Rotation Cube</b>",
+    "<font color='#727272'>Tọa độ [0,1] theo tỉ lệ màn hình, chưa phải world space thực.</font>",
     "",
     "Pipeline: <b>rotate Y → translate Z → project → screen</b>",
     "",

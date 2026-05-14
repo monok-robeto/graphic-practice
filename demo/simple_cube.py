@@ -6,6 +6,7 @@ import app
 NAME = "3d Cube"
 NOTES = [
     "<b>3D Cube — Static</b>",
+    "<font color='#727272'>Tọa độ [0,1] theo tỉ lệ màn hình, chưa phải world space thực.</font>",
     "",
     "Pipeline: <b>translate Z → project → screen</b>",
     "",

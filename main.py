@@ -24,11 +24,7 @@ class Demo:
         self.notes = getattr(module, "NOTES", [])
 
 
-demos = [
-    Demo(demo.simple_cube),
-    Demo(demo.rotation_cube),
-    Demo(demo.rotated_coordinate_cube),
-]
+demos = [Demo(m) for m in demo.modules]
 
 scroller.set_lines(demos[current_demo_idx].notes)
 
